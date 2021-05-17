@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>springcloud-test-nacos</module>
+        <module>spirngcloud-test-gateway</module>
+        <module>springcloud-test-eureka</module>
     </modules>
 
     <parent>
@@ -58,6 +60,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
         <!--test -->
         <dependency>
