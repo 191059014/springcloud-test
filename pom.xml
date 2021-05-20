@@ -5,8 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>springcloud-test-nacos</module>
-        <module>spirngcloud-test-gateway</module>
         <module>springcloud-test-eureka</module>
+        <module>springcloud-test-gateway</module>
     </modules>
 
     <parent>

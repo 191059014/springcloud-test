@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: springcloud-test-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: route_client1_use_eureka_id
+          uri: lb://springcloud-test-eureka-client1 # lb:// 代表配置的是注册中心服务名，会转发到此服务，也可以配置具体的地址
+          predicates:
+            - Path=/client1/** #匹配的路径规则
+          filters:
+            - StripPrefix=1 #忽略Path配置的个数，此处为1代表访问/client1/**时，会将client1忽略，真实的访问地址为/**
+        - id: route_client2_use_eureka_id
+          uri: lb://springcloud-test-eureka-client2 # lb:// 代表配置的是注册中心服务名，会转发到此服务，也可以配置具体的地址
+          predicates:
+            - Path=/client2/** #匹配的路径规则
+          filters:
+            - StripPrefix=1 #忽略Path配置的个数，此处为1代表访问/client2/**时，会将client2忽略，真实的访问地址为/**
+        - id: route_client1_use_url_id
+          uri: http://localhost:8081 # 转发地址，这里配置域名就行了
+          predicates:
+            - Path=/client1Url/** #匹配的路径规则
+          filters:
+            - StripPrefix=1 #忽略Path配置的个数，此处为1代表访问/client1Url/**时，会将client1Url忽略，真实的访问地址为/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka

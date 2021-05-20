@@ -23,4 +23,9 @@ public class TestController {
         return restTemplate.getForObject("http://localhost:8082/controller/test/method1", String.class);
     }
 
+    @GetMapping("/method2")
+    public Object method2() {
+        return this.getClass().getName() + "#" + Thread.currentThread().getStackTrace()[1].getMethodName();
+    }
+
 }

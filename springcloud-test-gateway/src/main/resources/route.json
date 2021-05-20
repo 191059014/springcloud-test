@@ -1,0 +1,23 @@
+[
+  {
+    "id": "route_client2_use_url_id",
+    "order": 1,
+    "predicates": [
+      {
+        "args": {
+          "pattern": "/client2Url/**"
+        },
+        "name": "Path"
+      }
+    ],
+    "filters": [
+      {
+        "args": {
+          "parts": "1"
+        },
+        "name": "StripPrefix"
+      }
+    ],
+    "uri": "http://localhost:8082"
+  }
+]

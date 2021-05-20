@@ -18,4 +18,9 @@ public class TestController {
         return "My ClassName is: "+this.getClass().getName();
     }
 
+    @GetMapping("/method2")
+    public Object method2() {
+        return this.getClass().getName() + "#" + Thread.currentThread().getStackTrace()[1].getMethodName();
+    }
+
 }
